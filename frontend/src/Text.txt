@@ -1,0 +1,18 @@
+ const addToCart = (itemId) => {
+        setCartItems((prev) => ({
+          ...prev,
+          [itemId]: prev[itemId] ? prev[itemId] + 1 : 1,
+        }));
+      };
+      
+    const removeFromCart = (itemId) => {
+        setCartItems((prev) => {
+          const updatedCart = { ...prev };
+          if (updatedCart[itemId] > 1) {
+            updatedCart[itemId] -= 1;
+          } else {
+            delete updatedCart[itemId]; // Remove item when count is zero
+          }
+          return updatedCart;
+        });
+      };
